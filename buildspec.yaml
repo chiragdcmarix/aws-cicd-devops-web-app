@@ -1,20 +1,20 @@
 version: 0.2
- 
-phases:
+phases: 
   install:
     runtime-versions:
-        nodejs: 18
+      nodejs: latest
     commands:
-        - echo Installing dependencies...
-        - npm install
- 
-  build:
+      - echo "We are in the installation phase"
+pre_build:
+    commands: 
+      - echo "We are in the pre test phase"
+ build:
     commands:
-        - echo Build started on `date`
-        - echo Compiling the Node.js code...
-        - npm run build
- 
-artifacts:
-  files:
-    - '**/*'
-  discard-paths: yes
+      - echo "Installing tidy"
+      - yum install -y tidy
+      - echo "Running tidy"
+      - tidy -q -e index.html
+
+ post_build:
+    commands:
+      - echo "We are in the post build phase"
