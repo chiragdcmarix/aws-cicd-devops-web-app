@@ -1,6 +1,6 @@
 version: 0.2
 
-phases: 
+phases:
   install:
     runtime-versions:
       nodejs: latest
@@ -8,8 +8,8 @@ phases:
       - echo "We are in the installation phase"
 
   pre_build:
-    commands: 
-      - echo "We are in the pre test phase"
+    commands:
+      - echo "We are in the pre build phase"
 
   build:
     commands:
@@ -18,7 +18,7 @@ phases:
       - echo "Running tidy"
       - tidy -q -e index.html
 
-
   post_build:
     commands:
       - echo "We are in the post build phase"
+
